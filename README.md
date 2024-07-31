@@ -1,1 +1,5 @@
 # Filament-multi-panels
+
+# 1.0.0
+
+# FIRST STEPS TO CREATE LARAVEL FILAMENT SAAS PROJECT
