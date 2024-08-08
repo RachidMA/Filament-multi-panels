@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->foreignId('company_id')->constrained('companies', 'id')->cascadeOnDelete(); //each company could have own ingrediens supplier
             $table->string('contact_person');
             $table->string('email')->unique();
             $table->string('phone');

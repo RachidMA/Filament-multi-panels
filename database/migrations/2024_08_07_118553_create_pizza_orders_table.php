@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pizza_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('company_id')->constrained('companies', 'id')->cascadeOnDelete();
+            $table->dateTime('order_made_time')->nullable();
+            $table->foreignId('staff_made_order')->constrained('pizza_staffs', 'id')->cascadeOnDelete();
             $table->foreignId('pizza_customer_id')->constrained('pizza_customers', 'id')->cascadeOnDelete();
             $table->foreignId('pizza_customer_address_id')->constrained('pizza_customer_addresses', 'id')->cascadeOnDelete();
             $table->enum('delivery', ['pending', 'delivering', 'completed'])->default('pending');

@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('headquater_id')->constrained('headquaters', 'id')->cascadeOnDelete();
             $table->foreignId('companyType_id')->constrained('company_types', 'id')->cascadeOnDelete();
+            $table->string('email')->unique()->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

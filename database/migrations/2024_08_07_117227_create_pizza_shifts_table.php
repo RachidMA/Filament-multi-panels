@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('pizza_shifts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('day_of_week');
+            $table->foreignId('company_id')->constrained('companies')->cascadeOnDelete();
+            $table->string('day_of_week', 10);
             $table->time('start_time');
             $table->time('end_time');
             $table->timestamps();

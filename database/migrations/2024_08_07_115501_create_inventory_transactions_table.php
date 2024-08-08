@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('inventory_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('ingredient_id')->constrained('ingredients', 'id')->cascadeOnDelete();
+            $table->foreignId('pizza_item_ingredient_id')->constrained('pizza_item_ingredients', 'id')->cascadeOnDelete();
+            $table->foreignId('company_id')->constrained('companies', 'id')->cascadeOnDelete();
             $table->decimal('quantity', 10, 2);
             $table->string('type'); // e.g., 'received', 'used', 'wasted'
             $table->timestamps();

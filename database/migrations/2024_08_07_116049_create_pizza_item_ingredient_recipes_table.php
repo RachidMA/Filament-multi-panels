@@ -15,6 +15,7 @@ return new class extends Migration
             //THIS TABLE WILL CONNECT BETWEEN THE ITEM AND THE INGREDIENTS NEEDED TO CREATED IT
             $table->bigIncrements('id');
             $table->string('pizza_menu_item_sku'); // Foreign key to pizza_menu_items
+            $table->foreignId('company_id')->constrained('companies', 'id')->cascadeOnDelete();
             $table->unsignedBigInteger('pizza_item_ingredient_id');      // Foreign key to ingredients
             $table->decimal('quantity', 8, 2);                // Quantity of the ingredient needed
             $table->enum('measurement_unit', ['g', 'kg', 'oz', 'lb', 'ml', 'l']); // Measurement units

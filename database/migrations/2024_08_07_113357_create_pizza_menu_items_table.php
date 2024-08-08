@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('pizza_menu_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('sku')->unique();
+            $table->foreignId('company_id')->constrained('companies', 'id')->cascadeOnDelete();
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('category'); //pizza,side(fries, cookies, more...), drink
-            $table->string('size'); //large,medium,small
-            $table->decimal('price', 10, 2);
+            $table->string('size')->nullable(); //large,medium,small
+            $table->decimal('price', 10, 2); //THIS IS THE ACCTUAL SELLING PRICE 
             $table->timestamps();
         });
     }

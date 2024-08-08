@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pizza_customer_addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('pizza_customer_id')->constrained('pizza_customers', 'id')->cascadeOnDelete();
+            $table->foreignId('company_id')->constrained('companies', 'id')->cascadeOnDelete();
             $table->string('address-1');
             $table->string('address-2')->nullable();
             $table->string('city');

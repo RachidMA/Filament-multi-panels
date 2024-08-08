@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pizza_customers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->foreignId('company_id')->constrained('companies', 'id')->cascadeOnDelete(); //customers of each pizza restaurant
             $table->string('email')->unique();
             $table->string('phone');
             $table->timestamps();
